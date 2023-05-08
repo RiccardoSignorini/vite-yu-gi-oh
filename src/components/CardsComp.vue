@@ -1,7 +1,7 @@
 <script>
-  export default{
-    name: "HeaderComp"
-  }
+    export default{
+        name: "CardsComp"
+    }
 </script>
 
 <template>
