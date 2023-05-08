@@ -1,14 +1,24 @@
 <script>
+    import {store} from "../store"
+
     export default{
-        name: "CardsComp"
+        name: "CardsComp",
+        data(){
+            return{
+                store
+            }
+        }
     }
 </script>
 
 <template>
-  <div>
-    <img src="" alt="">
-    <h1>Yu-Gi-Oh Api</h1>
-  </div>
+    <div class="card">
+        <img src="" alt="" class="card-img-top">
+        <div class="card-body text-center">
+            <h5 class="card-title">Name Card</h5>
+            <span class="card-text">Archetype</span>
+        </div>
+    </div>
 </template>
 
 <style scoped lang="scss">

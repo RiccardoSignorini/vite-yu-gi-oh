@@ -1,23 +1,34 @@
 <script>
   import CardsComp from "./CardsComp.vue"
+  import {store} from "../store"
+  
 
   export default{
     name: "MainComp",
     components: {
-      CardsComp
+      CardsComp,
+    },
+    data(){
+      return{
+        store
+      }
     }
   }
 </script>
 
 <template>
-  <div id="main">
-    <select name="" id="">Da fare dopo</select>
-    <div>
+  <div id="main" class="p-3">
+    <div class="container">
+      <select name="" id="">Da fare dopo</select>
       <div>
         <h5>Found ... cards</h5>
       </div>
-      <div id="cards">
-        <CardsComp/>
+      <div id="cards" class="container">
+        <div class="row">
+          <div class="col-3" v-for="(elem,index) in store.arrayCards" :key="index">
+            <CardsComp/>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -26,5 +37,8 @@
 <style scoped lang="scss">
   #main{
     background-color: rgb(213, 141, 64);
+    #cards{
+      background-color: white;
+    }
   }
 </style>
