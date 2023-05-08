@@ -1,26 +1,27 @@
 <script>
-    import {store} from "../store"
-
     export default{
         name: "CardsComp",
-        data(){
-            return{
-                store
-            }
-        }
+        props: ["cardDates"]
     }
 </script>
 
 <template>
-    <div class="card">
-        <img src="" alt="" class="card-img-top">
-        <div class="card-body text-center">
-            <h5 class="card-title">Name Card</h5>
-            <span class="card-text">Archetype</span>
+    <div class="card my-2">
+        <img :src="cardDates.card_images[0].image_url" alt="" class="card-img-top">
+        <div class="card-body text-center align-items-center">
+            <h5 class="card-title">{{cardDates.name}}</h5>
+            <p class="card-text">{{cardDates.archetype}}</p>
+            <p class="card-text">({{cardDates.frameType}})</p>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
+    .card{
+        background-color: rgb(213, 141, 64);
 
+        .card-body{
+            height: 150px;
+        }
+    }
 </style>

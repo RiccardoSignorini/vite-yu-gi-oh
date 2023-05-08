@@ -23,10 +23,10 @@
       <div>
         <h5>Found ... cards</h5>
       </div>
-      <div id="cards" class="container">
+      <div id="cards" class="container p-3">
         <div class="row">
           <div class="col-3" v-for="(elem,index) in store.arrayCards" :key="index">
-            <CardsComp/>
+            <CardsComp :cardDates="elem"/>
           </div>
         </div>
       </div>
