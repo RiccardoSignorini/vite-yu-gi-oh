@@ -2,6 +2,7 @@
   import CardsComp from "./CardsComp.vue"
   import FilterCardsComp from "./FilterCardsComp.vue"
   import {store} from "../store"
+  import axios from "axios"
   
 
   export default{
@@ -14,6 +15,29 @@
       return{
         store
       }
+    },
+    created(){
+      this.callApiCards();
+    },
+    methods: {
+      // CHIAMATA API CARTE
+      callApiCards(){
+
+        // if(store.arrayArchetype !== ''){
+        //   axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${encodeURIComponent(store.arrayArchetype)}`).then((res)=>{
+        //     this.store.arrayCards = res.data.data
+        //   })  
+        // } else{
+        //   axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=52&offset=0").then((res)=>{
+        //     this.store.arrayCards = res.data.data
+        //   })
+        // }
+
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=52&offset=0").then((res)=>{
+            this.store.arrayCards = res.data.data
+          })
+        
+      }
     }
   }
 </script>
@@ -22,7 +46,8 @@
   <div id="main" class="p-3">
     <div class="container">
 
-      <FilterCardsComp/>
+      <!-- RICERCA PER ARCHETIPI -->
+      <FilterCardsComp @changeArchetype="callApiCards()"/>
       
       <!-- NUM RISULTATO RICERCA -->
       <div id="search-results" class="text-light p-3">

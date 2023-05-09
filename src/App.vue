@@ -1,31 +1,12 @@
 <script>
   import HeaderComp from "./components/HeaderComp.vue"
   import MainComp from "./components/MainComp.vue"
-  import axios from 'axios'
-  import {store} from "./store"
 
   export default{
     name: "App",
-    data(){
-      return{
-        store
-      }
-    },
     components: {
       HeaderComp,
       MainComp
-    },
-    created(){
-      this.callApiCards();
-    },
-    methods: {
-      // CHIAMATA API CARTE
-      callApiCards(){
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=52&offset=0").then((res)=>{
-          console.log(res.data.data)
-          this.store.arrayCards = res.data.data
-        })
-      }
     }
   }
 </script>
