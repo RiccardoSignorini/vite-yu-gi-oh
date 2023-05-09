@@ -16,11 +16,12 @@
       MainComp
     },
     created(){
-      this.callApi();
+      this.callApiCards();
     },
     methods: {
-      callApi(){
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0").then((res)=>{
+      // CHIAMATA API CARTE
+      callApiCards(){
+        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=52&offset=0").then((res)=>{
           console.log(res.data.data)
           this.store.arrayCards = res.data.data
         })
